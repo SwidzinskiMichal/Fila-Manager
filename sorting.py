@@ -1,7 +1,23 @@
 import os
 import shutil
+from pathlib import Path
 
 path_to_sorting = input("Insert path: ")
+
+file_categories = {
+    "Image":[".jpg", ".png", ".jpeg", ".gif", ".webp"],
+    "Execs":[".exe"],
+    "Video":[".webm", ".mp4", ".mov"],
+    "Text":[".odt", ".pdf", ".txt"],
+    "Zips":[".rar", ".7z", ".zip"],
+}
+
+
+def sort_files(chosen_directory):
+    for file in os.listdir(chosen_directory):
+        for category, extensions in file_categories.items():
+            if Path(file).suffix in extensions:
+                shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/{category}")
 
 
 def clean_empty_directories(chosen_directory):
@@ -15,25 +31,10 @@ def clean_empty_directories(chosen_directory):
 def setup_directories(chosen_directory):
     expected_directories = ["Others", "Zips", "Text", "Video", "Execs", "Image"]
     for directory in expected_directories:
-        if not os.path.exists(f"{chosen_directory}/{directory}"):
-            os.makedirs(f"{chosen_directory}/{directory}")
-
-
-def sort_files(chosen_directory):
-    for file in os.listdir(chosen_directory):
-        if file.endswith((".jpg", ".png", ".jpeg", ".gif", ".webp")):
-            shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Image")
-        elif file.endswith(".exe"):
-            shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Execs")
-        elif file.endswith((".webm", ".mp4", ".mov")):
-            shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Video")
-        elif file.endswith((".odt", ".pdf", ".txt")):
-            shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Text")
-        elif file.endswith((".rar", ".7z", ".zip")):
-            shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Zips")
+        if os.path.exists(f"{chosen_directory}/{directory}"):
+            pass
         else:
-            if os.path.isfile(f"{chosen_directory}/{file}"):
-                shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/Others")
+            os.makedirs(f"{chosen_directory}/{directory}")
 
 
 setup_directories(path_to_sorting)
