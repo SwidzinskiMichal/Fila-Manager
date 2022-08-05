@@ -2,7 +2,6 @@ import os
 import shutil
 from pathlib import Path
 
-path_to_sorting = input("Insert path: ")
 
 file_categories = {
     "Image":[".jpg", ".png", ".jpeg", ".gif", ".webp"],
@@ -35,8 +34,3 @@ def setup_directories(chosen_directory):
             pass
         else:
             os.makedirs(f"{chosen_directory}/{directory}")
-
-
-setup_directories(path_to_sorting)
-sort_files(path_to_sorting)
-clean_empty_directories(path_to_sorting)
