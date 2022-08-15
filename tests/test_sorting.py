@@ -5,7 +5,7 @@ def test_sorting(tmp_path):
     # arrange
     setup_directories(tmp_path)
 
-    files_to_create = ["example.jpeg", "example.mp4", "example.exe"]
+    files_to_create = ["example.jpeg", "example.mp4", "example.exe", "example.mp3"]
     for filename in files_to_create:
         open(f"{tmp_path}/{filename}", 'w').close()
     
@@ -21,3 +21,6 @@ def test_sorting(tmp_path):
 
     assert os.path.exists(f"{tmp_path}/Execs/example.exe")
     assert not os.path.exists(f"{tmp_path}/example.exe")
+
+    assert os.path.exists(f"{tmp_path}/Songs/example.mp3")
+    assert not os.path.exists(f"{tmp_path}/example.mp3")

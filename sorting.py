@@ -1,15 +1,17 @@
+from distutils.command.config import config
 import os
+import json
 import shutil
 from pathlib import Path
 
 
-file_categories = {
-    "Image":[".jpg", ".png", ".jpeg", ".gif", ".webp"],
-    "Execs":[".exe"],
-    "Video":[".webm", ".mp4", ".mov"],
-    "Text":[".odt", ".pdf", ".txt"],
-    "Zips":[".rar", ".7z", ".zip"],
-}
+with open('config_dicts.txt') as f:
+    config_dicts = f.read()
+expected_directories = config_dicts.split(",")
+
+with open('config_extensions.txt') as f:
+    config_extensions = f.read()
+file_categories = json.loads(config_extensions)
 
 
 def sort_files(chosen_directory):
@@ -28,7 +30,6 @@ def clean_empty_directories(chosen_directory):
 
 
 def setup_directories(chosen_directory):
-    expected_directories = ["Others", "Zips", "Text", "Video", "Execs", "Image"]
     for directory in expected_directories:
         if os.path.exists(f"{chosen_directory}/{directory}"):
             pass
