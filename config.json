@@ -1,0 +1,30 @@
+{
+    "Image":[
+        ".jpg",
+        ".png",
+        ".jpeg",
+        ".gif",
+        ".webp"
+    ],
+    "Execs":[
+        ".exe"
+    ],
+    "Video":[
+        ".webm",
+        ".mp4",
+        ".mov"
+    ],
+    "Text":[
+        ".odt",
+        ".pdf",
+        ".txt"
+    ],
+    "Zips":[
+        ".rar",
+        ".7z",
+        ".zip"
+    ],
+    "Songs":[
+        ".mp3"
+    ]
+}
