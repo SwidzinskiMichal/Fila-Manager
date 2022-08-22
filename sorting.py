@@ -1,15 +1,11 @@
 import os
 import shutil
+import json
 from pathlib import Path
 
 
-file_categories = {
-    "Image":[".jpg", ".png", ".jpeg", ".gif", ".webp"],
-    "Execs":[".exe"],
-    "Video":[".webm", ".mp4", ".mov"],
-    "Text":[".odt", ".pdf", ".txt"],
-    "Zips":[".rar", ".7z", ".zip"],
-}
+with open("config.json") as config_dict:
+    file_categories = json.load(config_dict)
 
 
 def sort_files(chosen_directory):
@@ -28,7 +24,11 @@ def clean_empty_directories(chosen_directory):
 
 
 def setup_directories(chosen_directory):
-    expected_directories = ["Others", "Zips", "Text", "Video", "Execs", "Image"]
+    expected_directories = []
+    file_categories_keys = file_categories.keys()
+    for folder in file_categories_keys:
+        expected_directories.append(folder)
+    
     for directory in expected_directories:
         if os.path.exists(f"{chosen_directory}/{directory}"):
             pass
