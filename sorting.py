@@ -15,7 +15,7 @@ def sort_files(chosen_directory):
                 shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/{category}")
 
 
-def clean_empty_directories(chosen_directory):
+def remove_empty_directories(chosen_directory):
     for directory in os.listdir(chosen_directory):
         if len(os.listdir(f"{chosen_directory}/{directory}")) == 0:
             os.rmdir(f"{chosen_directory}/{directory}")
