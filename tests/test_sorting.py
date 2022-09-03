@@ -1,13 +1,10 @@
 import os
-from sorting import sort_files, setup_directories
+from sorting import sort_files
 
-def test_sorting(tmp_path):
+def test_sorting(tmp_path, create_directories, create_files):
     # arrange
-    setup_directories(tmp_path)
-
-    files_to_create = ["example.jpeg", "example.mp4", "example.exe", "example.mp3"]
-    for filename in files_to_create:
-        open(f"{tmp_path}/{filename}", 'w').close()
+    create_directories(dirnames=["Image", "Video", "Execs", "Songs"])
+    create_files(filenames=["example.jpeg", "example.mp4", "example.exe", "example.mp3"])
     
     # act
     sort_files(tmp_path)
