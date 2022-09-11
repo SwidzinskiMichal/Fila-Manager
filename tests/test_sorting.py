@@ -5,7 +5,7 @@ def test_sorting(tmp_path, create_directories, create_files):
     # arrange
     create_directories(dirnames=["Image", "Video", "Execs", "Songs"])
     create_files(filenames=["example.jpeg", "example.mp4", "example.exe", "example.mp3"])
-    
+
     # act
     sort_files(tmp_path)
 

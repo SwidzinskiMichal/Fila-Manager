@@ -13,7 +13,7 @@ venv:	## Installs project requirements
 	python3 -m venv .venv
 
 test:	## Run tests
-	pytest
+	python3 -m pytest
 
 start:	## Starts Flask server
 	@echo "Start"

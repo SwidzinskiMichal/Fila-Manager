@@ -1,4 +1,3 @@
-from unittest import result
 from jsonschema import validate
 import json
 
@@ -9,7 +8,5 @@ def test_valiate():
     with open("config.json") as f:
         config = json.load(f)
 
-
-    result = validate(instance=config, schema=config)
+    result = validate(instance=config, schema=schema)
     assert result == None
-

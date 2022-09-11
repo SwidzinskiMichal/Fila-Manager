@@ -11,9 +11,10 @@ with open("config.json") as config_dict:
 
 def sort_files(chosen_directory):
     for name in os.listdir(chosen_directory):
-        for category, extensions in file_categories.items():
-            if Path(name).suffix in extensions:
-                shutil.move(f"{chosen_directory}/{name}", f"{chosen_directory}/{category}")
+        for file_category in file_categories:
+            if Path(name).suffix in file_category["file_extensions"]:
+                category_name = file_category["name"]
+                shutil.move(f"{chosen_directory}/{name}", f"{chosen_directory}/{category_name}")
 
 
 def remove_empty_directories(chosen_directory):
@@ -27,7 +28,7 @@ def remove_created_empty_directories(chosen_directory):
             os.rmdir(f"{chosen_directory}/{name}")
 
 def setup_directories(chosen_directory):
-    expected_directories = list(file_categories.keys())    
+    expected_directories = list(file_categories.keys())
     for directory in expected_directories:
         if not os.path.exists(f"{chosen_directory}/{directory}"):
             os.makedirs(f"{chosen_directory}/{directory}")
