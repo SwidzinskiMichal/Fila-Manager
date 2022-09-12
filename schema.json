@@ -1,15 +1,25 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "file_categories":{
-        "type": "object",
-        "items": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        }    
-      }
+  "$id": "https://example.com/arrays.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A represantation of file manager cli config file",
+  "type": "object",
+  "properties": {
+    "file_categories": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/file_category" }
+    }
+  },
+  "required": ["file_categories"],
+
+  "definitions": {
+    "file_category": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "file_extensions": { "type": "array", "items": { "type": "string" }}
+      },
+      "required": ["name", "file_extensions"],
+      "additionalProperties": false
     }
   }
+}
