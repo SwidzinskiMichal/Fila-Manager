@@ -1,30 +1,50 @@
 {
-    "Image":[
+  "file_categories": [
+    {
+      "name": "Image",
+      "file_extensions": [
         ".jpg",
         ".png",
         ".jpeg",
         ".gif",
         ".webp"
-    ],
-    "Execs":[
-        ".exe"
-    ],
-    "Video":[
+      ]
+    },
+    {
+      "name": "Video",
+      "file_extensions": [
         ".webm",
         ".mp4",
         ".mov"
-    ],
-    "Text":[
+      ]
+    },
+    {
+      "name": "Text",
+      "file_extensions": [
         ".odt",
         ".pdf",
         ".txt"
-    ],
-    "Zips":[
+      ]
+    },
+    {
+      "name": "Zips",
+      "file_extensions": [
         ".rar",
         ".7z",
         ".zip"
-    ],
-    "Songs":[
+      ]
+    },
+    {
+      "name": "Songs",
+      "file_extensions": [
         ".mp3"
-    ]
+      ]
+    },
+    {
+      "name": "Execs",
+      "file_extensions": [
+        ".exe"
+      ]
+    }
+  ]
 }
