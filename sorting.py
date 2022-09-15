@@ -23,8 +23,9 @@ def remove_empty_directories(chosen_directory):
             os.rmdir(f"{chosen_directory}/{name}")
 
 def remove_created_empty_directories(chosen_directory):
+    file_categories_string = f"{file_categories}"
     for name in os.listdir(chosen_directory):
-        if os.path.isdir(f"{chosen_directory}/{name}") and len(os.listdir(f"{chosen_directory}/{name}")) == 0 and name in file_categories:
+        if os.path.isdir(f"{chosen_directory}/{name}") and len(os.listdir(f"{chosen_directory}/{name}")) == 0 and name in file_categories_string:
             os.rmdir(f"{chosen_directory}/{name}")
 
 def setup_directories(chosen_directory):
