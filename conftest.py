@@ -1,7 +1,6 @@
 import pytest
 import os
 
-
 @pytest.fixture()
 def create_files(tmp_path, filenames = []):
     def _create_files(filenames = []):
