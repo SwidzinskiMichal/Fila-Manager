@@ -16,13 +16,13 @@ def sort_files(path):
 
 def remove_empty_directories(path):
     for name in os.listdir(path):
-        if os.path.isdir(f"{path}/{name}") and len(os.listdir(f"{path}/{name}")) == 0:
+        if is_dir_empty(f"{path}/{name}"):
             os.rmdir(f"{path}/{name}")
 
 def remove_created_empty_directories(path):
     created_folders = [category["name"] for category in file_categories]
     for name in os.listdir(path):
-        if os.path.isdir(f"{path}/{name}") and len(os.listdir(f"{path}/{name}")) == 0 and name in created_folders:
+        if is_dir_empty(f"{path}/{name}") and name in created_folders:
             os.rmdir(f"{path}/{name}")
 
 def setup_directories(path):
@@ -31,11 +31,11 @@ def setup_directories(path):
         if not os.path.exists(f"{path}/{directory}"):
             os.makedirs(f"{path}/{directory}")
 
-def is_dir_empty(path, name):
-    if not os.path.isdir(f"{path}/{name}"):
-        raise Exception("Directory not found.")
+def is_dir_empty(path_to_check):
+    if not os.path.isdir(path_to_check):
+        return False
 
-    if len(os.listdir(f"{path}/{name}")) == 0:
+    if len(os.listdir(path_to_check)) == 0:
         return True
 
     return False
