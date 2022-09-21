@@ -1,7 +1,6 @@
 import click
 from sorting import remove_created_empty_directories, remove_empty_directories, sort_files, setup_directories
 
-
 @click.command()
 @click.option('--path', default=".", help='Provide path for sorting')
 @click.option('--remove-empty-dirs', is_flag=True, help='Remove empty directories')
