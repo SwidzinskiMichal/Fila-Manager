@@ -1,10 +1,8 @@
 {
-  "cli_config":[
-    {
+  "cli_config": {
       "remove_empty_dirs": "True",
-      "remove_created_empty_dirs": "True"
-    }
-  ],
+      "remove_created_empty_dirs": "False"
+  },
   "file_categories": [
     {
       "name": "Image",
