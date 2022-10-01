@@ -1,7 +1,9 @@
 {
   "cli_config": {
-      "remove_empty_dirs": "True",
-      "remove_created_empty_dirs": "False"
+      "remove_empty_dirs": "False",
+      "remove_created_empty_dirs": "False",
+      "setup_dirs": "True",
+      "sort": "True"
   },
   "file_categories": [
     {
