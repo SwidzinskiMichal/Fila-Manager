@@ -1,5 +1,4 @@
 import click
-from numpy import sort
 from sorting import remove_created_empty_directories, remove_empty_directories, sort_files, setup_directories
 import os
 import json
