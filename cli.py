@@ -1,13 +1,13 @@
-import click
+import click 
 from sorting import remove_created_empty_directories, remove_empty_directories, sort_files, setup_directories
 import os
 import json
 
-
-if os.path.isfile('config.json'):
-    pass
-else:
-    raise Exception("Config file is required to proceed")
+def check_config():
+    if os.path.isfile('config.json'):
+        pass
+    else:
+        raise Exception("Config file is required to proceed")
 
 with open("config.json") as config_dict:
     config = json.load(config_dict)
@@ -32,6 +32,7 @@ def run(path, sort, remove_empty_dirs, remove_created_empty_dirs, setup_dirs):
     if sort:
         print("Sorting...")
         sort_files(path)
-
+        
+check_config()
 if __name__ == '__main__':
     run()
