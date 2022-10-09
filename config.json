@@ -1,4 +1,10 @@
 {
+  "cli_config": {
+      "remove_empty_dirs": "False",
+      "remove_created_empty_dirs": "True",
+      "setup_dirs": "False",
+      "sort": "False"
+  },
   "file_categories": [
     {
       "name": "Image",
