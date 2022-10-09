@@ -21,3 +21,25 @@ def test_sorting(tmp_path, create_directories, create_files):
 
     assert os.path.exists(f"{tmp_path}/Songs/example.mp3")
     assert not os.path.exists(f"{tmp_path}/example.mp3")
+
+
+def test_sorting_fail(tmp_path, create_directories, create_files):
+    # arrange
+    create_directories(dirnames=["ImageFail", "VideoFail", "ExecsFail", "SongsFail"])
+    create_files(filenames=["examples.jpeg", "examples.mp4", "examples.exe", "examples.mp3"])
+
+    # act
+    sort_files(tmp_path)
+
+    # assert
+    assert not os.path.exists(f"{tmp_path}/ImageFail/example.jpeg")
+    assert os.path.exists(f"{tmp_path}/example.jpeg")   
+
+    assert not os.path.exists(f"{tmp_path}/VideoFail/example.mp4")
+    assert os.path.exists(f"{tmp_path}/example.mp4")
+
+    assert not os.path.exists(f"{tmp_path}/ExecsFail/example.exe")
+    assert os.path.exists(f"{tmp_path}/example.exe")
+
+    assert not os.path.exists(f"{tmp_path}/SongsFail/example.mp3")
+    assert os.path.exists(f"{tmp_path}/example.mp3")

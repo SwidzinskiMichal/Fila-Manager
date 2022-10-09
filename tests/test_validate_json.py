@@ -1,7 +1,7 @@
 from jsonschema import validate
 import json
 
-def test_valiate():
+def test_validate():
     with open("schema.json") as f:
         schema = json.load(f)
 
