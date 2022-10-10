@@ -13,7 +13,7 @@ def sort_files(path):
             if Path(name).suffix in file_category["file_extensions"]:
                 category_name = file_category["name"]
                 shutil.move(f"{path}/{name}", f"{path}/{category_name}")
-
+                    
 def remove_empty_directories(path):
     for name in os.listdir(path):
         if is_dir_empty(f"{path}/{name}"):
