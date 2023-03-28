@@ -1,4 +1,6 @@
+from distutils.command.config import config
 import os
+import json
 import shutil
 import json
 from pathlib import Path
@@ -31,6 +33,30 @@ def setup_directories(path):
         if not os.path.exists(f"{path}/{directory}"):
             os.makedirs(f"{path}/{directory}")
 
+
+with open('config_dicts.txt') as f:
+    config_dicts = f.read()
+expected_directories = config_dicts.split(",")
+
+with open('config_extensions.txt') as f:
+    config_extensions = f.read()
+file_categories = json.loads(config_extensions)
+
+
+def sort_files(chosen_directory):
+    for file in os.listdir(chosen_directory):
+        for category, extensions in file_categories.items():
+            if Path(file).suffix in extensions:
+                shutil.move(f"{chosen_directory}/{file}", f"{chosen_directory}/{category}")
+
+
+def clean_empty_directories(chosen_directory):
+    for directory in os.listdir(chosen_directory):
+        if len(os.listdir(f"{chosen_directory}/{directory}")) == 0:
+            os.rmdir(f"{chosen_directory}/{directory}")
+        else:
+            pass
+            
 def is_dir_empty(path_to_check):
     if not os.path.isdir(path_to_check):
         return False
@@ -39,3 +65,11 @@ def is_dir_empty(path_to_check):
         return True
 
     return False
+
+
+def setup_directories(path):
+    expected_directories = [category["name"] for category in file_categories]
+    for directory in expected_directories:
+        if not os.path.exists(f"{path}/{directory}"):
+            os.makedirs(f"{path}/{directory}")
+
