@@ -3,11 +3,14 @@ from sorting import remove_created_empty_directories, remove_empty_directories, 
 import os
 import json
 
-def check_config():
-    if os.path.isfile('config.json'):
-        pass
+def check_config(file):
+    if os.path.isfile(file):
+        x = True
     else:
-        raise Exception("Config file is required to proceed")
+        x = False
+    return x
+if check_config("config.json") == False:
+    raise Exception ("Config file is required to proceed")
 
 with open("config.json") as config_dict:
     config = json.load(config_dict)
@@ -33,6 +36,6 @@ def run(path, sort, remove_empty_dirs, remove_created_empty_dirs, setup_dirs):
         print("Sorting...")
         sort_files(path)
         
-check_config()
+check_config('config.json')
 if __name__ == '__main__':
     run()
