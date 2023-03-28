@@ -1,0 +1,56 @@
+{
+  "cli_config": {
+      "remove_empty_dirs": "False",
+      "remove_created_empty_dirs": "True",
+      "setup_dirs": "False",
+      "sort": "False"
+  },
+  "file_categories": [
+    {
+      "name": "Image",
+      "file_extensions": [
+        ".jpg",
+        ".png",
+        ".jpeg",
+        ".gif",
+        ".webp"
+      ]
+    },
+    {
+      "name": "Video",
+      "file_extensions": [
+        ".webm",
+        ".mp4",
+        ".mov"
+      ]
+    },
+    {
+      "name": "Text",
+      "file_extensions": [
+        ".odt",
+        ".pdf",
+        ".txt"
+      ]
+    },
+    {
+      "name": "Zips",
+      "file_extensions": [
+        ".rar",
+        ".7z",
+        ".zip"
+      ]
+    },
+    {
+      "name": "Songs",
+      "file_extensions": [
+        ".mp3"
+      ]
+    },
+    {
+      "name": "Execs",
+      "file_extensions": [
+        ".exe"
+      ]
+    }
+  ]
+}
